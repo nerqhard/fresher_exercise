@@ -71,7 +71,7 @@ public class MainController {
             return "redirect:/listUser";
         }
 
-        for (int i = 0; i <userList.size() ; i++) {
+        for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i).getId() == id) {
                 userList.remove(userList.get(i));
             }
