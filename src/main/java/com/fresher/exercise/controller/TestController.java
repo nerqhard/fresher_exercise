@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class MainController {
+@RequestMapping("/test")
+public class TestController {
 
     // use List instead of Database
     List<User> userList = new ArrayList<>();
@@ -21,7 +22,7 @@ public class MainController {
     public String list(Model model) {
         model.addAttribute("userList", userList);
         // return Template listUser.html
-        return "listUser";
+        return "listUserJavaScript";
     }
 
     @GetMapping("/addUser")
@@ -66,10 +67,6 @@ public class MainController {
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") int id, Model model) {
-        if (id == 0 || String.valueOf(id).isEmpty()) {
-            model.addAttribute("nullId", "nullId");
-            return "redirect:/listUser";
-        }
 
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i).getId() == id) {
