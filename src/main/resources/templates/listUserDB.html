@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container" style="width: 700px">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2><b>User Details 2</b></h2></div>
+                <div class="col-sm-4">
+                    <a id="add-new" class="btn btn-info add-new" title="Add new User"><i class="fa fa-plus"
+                                                                                         aria-hidden="true"></i>Add
+                        New
+                        User</a>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-bordered fix-empty">
+            <thead>
+            <tr style="text-align: center">
+                <th scope="col" width="50px">#</th>
+                <th>Name User</th>
+                <th>Age User</th>
+                <th width="100px">Action</th>
+            </tr>
+            </thead>
+            <tbody id="listUser">
+            </tbody>
+
+            <tbody>
+
+            <tr id="row-add" style="text-align: center" class="row-hidden">
+                <td width="60px">
+                    <i class="text-success" style="text-align: center; font-size: 12px !important"><b>New</b></i>
+                </td>
+
+                <td>
+                    <input class="form-control form-control-sm" type="text" name="name" id="name"
+                           placeholder="Your name.." style="padding: 5px"/><br/>
+                </td>
+
+                <td>
+                    <input class="form-control form-control-sm" type="text" name="age" id="age"
+                           placeholder="Your age.." style="padding: 5px" value=""/>
+                </td>
+                <td>
+                    <a class="add" title="Add" onclick="addUser()"
+                       data-toggle="tooltip"><i
+                            class="material-icons">&#xE03B;</i></a>
+                </td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script th:src="@{/code.js}"></script>
+
+</body>
+</html>
