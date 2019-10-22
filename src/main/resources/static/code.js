@@ -33,7 +33,7 @@ function addUser() {
 };
 
 function oneDel(e) {
-    $("." + e.classList[0]).closest('tr').remove();
+    $("." + e.classList[1]).closest('tr').remove();
 }
 
 function oneEdit(e) {

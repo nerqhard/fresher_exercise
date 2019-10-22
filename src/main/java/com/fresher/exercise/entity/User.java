@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 
 @Data
 @AllArgsConstructor
@@ -16,12 +15,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private int id;
+    private Integer id;
 
     @Column(name = "name_user")
     private String name;
 
-//    @Pattern(regexp = "[0-9]")
     @Column(name = "age_user")
     private int age;
 
