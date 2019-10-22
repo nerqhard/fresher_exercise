@@ -1,25 +1,23 @@
 package com.fresher.exercise.controller;
 
 import com.fresher.exercise.entity.User;
+import com.fresher.exercise.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class MainController {
 
-    // use List instead of Database
-    List<User> userList = new ArrayList<>();
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping(value = {"/listUser", "/"})
     public String list(Model model) {
-        model.addAttribute("userList", userList);
-        // return Template listUser.html
+        model.addAttribute("userList", userRepository.findAllByOrderByIdAsc());
         return "listUser";
     }
 
@@ -33,32 +31,21 @@ public class MainController {
 
     @PostMapping("/addUser")
     public String addUser(User user) {
-        // add user to  userList
-        user.setId(userList.size() + 1);
-        userList.add(user);
+        userRepository.save(user);
         return "redirect:/listUser";
     }
 
     @GetMapping("/editUser/{id}")
     public String edit(@PathVariable("id") int id, Model model) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                model.addAttribute("user", user);
-                break;
-            }
-        }
+        User user = userRepository.getOne(id);
+        model.addAttribute("user", user);
         return "editUser";
     }
 
     @PostMapping("/editUser")
     public String update(User user) {
 
-        for (User u : userList) {
-            if (u.getId() == user.getId()) {
-                u.setName(user.getName());
-                u.setAge(user.getAge());
-            }
-        }
+        userRepository.save(user);
 
         return "redirect:/listUser";
     }
@@ -69,13 +56,7 @@ public class MainController {
             model.addAttribute("nullId", "nullId");
             return "redirect:/listUser";
         }
-
-        for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).getId() == id) {
-                userList.remove(userList.get(i));
-            }
-        }
-
+        userRepository.deleteById(id);
         return "redirect:/listUser";
     }
 

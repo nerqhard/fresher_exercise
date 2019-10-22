@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link th:href="@{/main.css}" rel="stylesheet"/>
 </head>
 <body>
@@ -17,7 +18,7 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <p th:text="${nullId}" th:if="${nullId}"></p>
+<!--                <p th:text="${nullId}" th:if="${nullId}"></p>-->
                 <div class="col-sm-8"><h2><b>User Details</b></h2></div>
                 <div class="col-sm-4">
                     <a class="btn btn-info add-new" title="Add new User" th:href="@{/addUser}"><i class="fa fa-plus"
@@ -69,7 +70,7 @@
 
                 <!-- The Modal -->
                 <div class="modal" id="myConfirm">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog w3-modal-content w3-animate-top">
                         <div class="modal-content">
 
                             <!-- Modal Header -->
@@ -112,7 +113,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-<script th:src="@{/code.js}"></script>
+<!--<script th:src="@{/code.js}"></script>-->
 
 </body>
 </html>
